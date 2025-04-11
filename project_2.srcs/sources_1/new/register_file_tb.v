@@ -16,7 +16,6 @@ module register_file_tb;
     wire [15:0] rs1_data;
     wire [15:0] rs2_data;
 
-    // Instantiate the register file
     register_file dut (
         .clk(clk),
         .reset(reset),

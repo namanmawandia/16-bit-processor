@@ -10,7 +10,7 @@ module data_memory_tb;
   reg [7:0] addr;                 // 8-bit address (256 locations)
   wire [15:0] data_out;             // 16-bit data output
 
-  // Instantiate the 16-bit data memory module
+  
   data_memory mem (
     .clk(clk),
     .data_in(data_in),
@@ -51,7 +51,7 @@ module data_memory_tb;
     $finish;                       // End simulation
   end
 
-  // Display results at each positive clock edge
+  // Display at each positive clock edge
   always @(posedge clk) begin
     $display("Time: %0t | Addr: %b | Wr: %b | Rd: %b | Data In: %b | Data Out: %b",
              $time, addr, wr, rd, data_in, data_out);

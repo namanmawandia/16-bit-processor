@@ -12,7 +12,6 @@ module program_counter_tb;
     wire [7:0] pc;
     wire [7:0] mux_pc_out;
 
-    // Instantiate the module under test
     program_counter uut (
         .clk(clk),
         .reset(reset),

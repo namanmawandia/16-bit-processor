@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module alu_tb;
-    // Parameters
+    
     parameter CLK_PERIOD = 10;
 
     // Inputs
@@ -25,7 +25,7 @@ module alu_tb;
         .imm(imm_tb),
         .alu_src(alu_src_tb),
         .result(result_tb),
-        .zero_flag(zero_tb)  // Connect zero flag
+        .zero_flag(zero_tb)
     );
 
     // Clock generation
@@ -124,7 +124,7 @@ module alu_tb;
         $finish;
     end
 
-    // Display results
+    // Display
     always @(negedge clk) begin
         $display("Time=%0t | ALU Op=%b | Func Code=%b | RS1=%d | RS2=%d | Imm=%b | Result=%d | Zero=%b",
                  $time, alu_op_tb, func_code_tb, rs_data1_tb, rs_data2_tb, imm_tb, result_tb, zero_tb);

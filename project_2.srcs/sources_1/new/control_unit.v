@@ -7,11 +7,11 @@ module control_unit(
     output reg RegWriteSrc,    // 0 = ALU result, 1 = Memory data
     output reg Branch,         // Branch flag for BEQ/BNE
     output reg Jump,           // Jump flag
-    output reg [3:0] ALUOp     // ALU operation selection (directly assigned from opcode)
+    output reg [3:0] ALUOp     
 );
 
     always @(*) begin
-        // Default control signals (safe defaults)
+        // Default control signals
         RegWrite    = 0;
         MemWrite    = 0;
         MemRead     = 0;
@@ -19,7 +19,7 @@ module control_unit(
         RegWriteSrc = 0;
         Branch      = 0;
         Jump        = 0;
-        ALUOp       = opcode;  // ALU operation directly follows the opcode
+        ALUOp       = opcode;  // ALU operation same as the opcode
 
         case (opcode)
             4'b0000: begin // R-Type Instructions (ADD, SUB, SLL, AND)
@@ -61,7 +61,6 @@ module control_unit(
             end
 
             default: begin
-                // Safe defaults to prevent unintended behavior
                 RegWrite = 0;
                 MemWrite = 0;
                 MemRead  = 0;

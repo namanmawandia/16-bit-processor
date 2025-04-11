@@ -6,12 +6,11 @@ module ins_mem (
     // 64 memory locations, each storing a 16-bit instruction
     reg [15:0] ins_mem [255:0];
     
-    // Load instructions from an external file
+    // Loading instructions from an external file
     initial begin
-        $readmemb("InsMem.mem", ins_mem); // Load memory contents from a binary file
+        $readmemb("InsMem.mem", ins_mem);
     end
     
-    // Fetch instruction when the program counter (pc_addr) changes
     always @(pc_addr) begin
         inst <= ins_mem[pc_addr];
     end

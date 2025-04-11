@@ -10,7 +10,6 @@ module mux_tb;
     // Output
     wire [15:0] out;
 
-    // Instantiate the 16-bit mux2
     mux #(16) uut (
         .input1(input1),
         .input2(input2),

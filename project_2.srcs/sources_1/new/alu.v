@@ -9,13 +9,12 @@ module alu (
     output reg zero_flag       // Flag to indicate zero result (for branch instructions)
 );
 
-    // Define function codes for R-type operations
     parameter ADD  = 4'b0000;   // Addition
     parameter SUB  = 4'b0001;   // Subtraction
     parameter SLL  = 4'b0010;   // Shift Left Logical
     parameter AND  = 4'b0011;   // Bitwise AND
     
-    // Define operation codes
+    
     parameter ADDI = 4'b0011;   // Add Immediate (I-type)
     parameter LW   = 4'b0001;   // Load Word (I-type)
     parameter SW   = 4'b0010;   // Store Word (I-type)
@@ -41,9 +40,6 @@ module alu (
                 default: result = 16'b0;
             endcase
         end
-        
-        // Set zero flag for branch instructions
-//        zero_flag = (result == 16'b0) ? 1'b1 : 1'b0;
     end
 
 endmodule

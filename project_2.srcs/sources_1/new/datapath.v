@@ -13,7 +13,7 @@ module datapath(
     output wire ALUSrc,           // ALU source select: 0 = reg, 1 = imm
     output wire [3:0] ALUOp,     // ALU operation code
     output wire [15:0] imm,       // Immediate output
-    output wire zero_flag
+    output wire zero_flag           // zero flag
 );
 
     // Internal Signals
@@ -34,10 +34,10 @@ module datapath(
         .reset(reset),
         .enable(enable),
         .mux_pc_out(mux_pc_out),
-        .pc(pc)             // Program Counter output
+        .pc(pc)             
     );
 
-    assign pc_out_addr = pc; // Connect internal PC to the module output
+    assign pc_out_addr = pc; 
 
     ins_mem instruction_memory(
         .pc_addr(pc),
@@ -73,7 +73,6 @@ module datapath(
 
     alu alu_unit(
         .rs_data1(rs1_data),
-//        .rs_data2(alu_src_mux_out),//input from mux
         .rs_data2(rs2_data),
         .alu_op(ALUOp),
         .func_code(inst[3:0]),
@@ -106,11 +105,11 @@ module datapath(
     assign jump_target = pc + 1 + ({ {4{inst[11]}}, inst[11:0] } << 1);
 
    always @(*) begin
-    if(Jump)
+    if(Jump) // if jump use jump target PC
         mux_pc_out = jump_target;
-    else if (zero_flag && Branch)
+    else if (zero_flag && Branch) // if bne or neq true, then branch with branch_target PC
         mux_pc_out = branch_target;
-    else 
+    else  // simple next PC
         mux_pc_out = pc + 1;
    end
 

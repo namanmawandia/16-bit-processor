@@ -21,7 +21,6 @@ module datapath_tb;
   wire [15:0] write_data;
   wire zero_flag;
 
-  // Instantiate the processor module
  datapath dut (
     .clk(clk),
     .reset(reset),
@@ -48,7 +47,7 @@ module datapath_tb;
 
   integer file;
 
-  // Monitor changes and write them to the file
+  // writing the outputs to a file
   initial begin
     file = $fopen("D:\\processor8bit_output.txt", "w");
     if (file == 0) begin
@@ -56,7 +55,6 @@ module datapath_tb;
       $finish;
     end
 
-    // Write the headers to the file
     $fwrite(file, "Time\tPC\tInstruction\tReadData1\tReadData2\tALU_Result\tALUSrc\tALUOp\tRegWrite\tMemRead\tMemWrite\tImm\n");
 
     // Reset processor
@@ -70,7 +68,7 @@ module datapath_tb;
     $display("Time: %0t, PC: %h, Instruction: %h, ReadData1: %h, ReadData2: %h, ALU_Result: %h, ALUSrc: %b, ALUOp: %h, RegWrite: %b, MemRead: %b, MemWrite: %b, Imm: %h, Zero_flag: %b",
       $time, pc_out_addr, instruction, readData1, readData2, alu_result, ALUSrc, ALUOp, RegWrite, MemRead, MemWrite, imm,zero_flag);
 
-       // Print registers r0, r1, r2, r3, r4
+       // Printing registers r0, r1, r2, r3, r4
     $display("   r0=%h, r1=%h, r2=%h, r3=%h, r4=%h, address[4]:%h",
       dut.reg_file.registers[0],
       dut.reg_file.registers[1],
@@ -84,7 +82,6 @@ module datapath_tb;
   end
 
   initial begin
-    // Run simulation for a certain time
     #200;
     $fclose(file);
     $finish;

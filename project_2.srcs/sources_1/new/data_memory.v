@@ -16,7 +16,7 @@ input clk,                   // Clock input
     end
   end
 
-  // Read operation (combinational)
+  // Read operation
   always @(addr or rd) begin
     if (rd) begin
       data_out = memory[addr];  

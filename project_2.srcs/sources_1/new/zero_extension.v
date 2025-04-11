@@ -3,7 +3,7 @@ module zero_extension(
     output reg [15:0] output_data  // Zero-extended output data (16-bit)
 );
 
-    // Zero extension operation: concatenate 14 zeros with the 2-bit input
+    // Zero extension operation
     always @* begin
         output_data = {14'b0, input_data};
     end

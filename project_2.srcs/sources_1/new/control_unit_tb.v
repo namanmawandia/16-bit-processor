@@ -16,7 +16,7 @@ module control_unit_tb;
     wire Jump;                 // Jump control (JMP)
     wire [3:0] ALUOp;         // ALU operation code (directly from opcode)
 
-    // Instantiate the 16-bit control unit module
+    
     control_unit cu (
         .opcode(opcode),
         .RegWrite(RegWrite),

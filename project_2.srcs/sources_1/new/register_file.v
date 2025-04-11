@@ -10,7 +10,7 @@ module register_file (
     output reg [15:0] rs2_data  // Output for read port 2
 );
 
-    // Declare 16 registers, each 16 bits wide
+    // Declaring 16 registers, each 16 bits wide
     reg [15:0] registers [15:0];
     integer i;
     
