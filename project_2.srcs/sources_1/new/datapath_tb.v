@@ -70,6 +70,15 @@ module datapath_tb;
     $display("Time: %0t, PC: %h, Instruction: %h, ReadData1: %h, ReadData2: %h, ALU_Result: %h, ALUSrc: %b, ALUOp: %h, RegWrite: %b, MemRead: %b, MemWrite: %b, Imm: %h, Zero_flag: %b",
       $time, pc_out_addr, instruction, readData1, readData2, alu_result, ALUSrc, ALUOp, RegWrite, MemRead, MemWrite, imm,zero_flag);
 
+       // Print registers r0, r1, r2, r3, r4
+    $display("   r0=%h, r1=%h, r2=%h, r3=%h, r4=%h, address[4]:%h",
+      dut.reg_file.registers[0],
+      dut.reg_file.registers[1],
+      dut.reg_file.registers[2],
+      dut.reg_file.registers[3],
+      dut.reg_file.registers[4],
+       dut.data_mem.memory[4]);
+
     $fwrite(file, "%0t\t%0h\t%0h\t%0h\t%0h\t%0h\t%0b\t%0h\t%0b\t%0b\t%0b\t%0h\t%0b\n",
       $time, pc_out_addr, instruction, readData1, readData2, alu_result, ALUSrc, ALUOp, RegWrite, MemRead, MemWrite, imm,zero_flag);
   end

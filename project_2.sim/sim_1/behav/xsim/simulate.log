@@ -1,22 +1,42 @@
 Time resolution is 1 ps
 Time: 5000, PC: 00, Instruction: 300a, ReadData1: xxxx, ReadData2: xxxx, ALU_Result: xxxx, ALUSrc: 1, ALUOp: 3, RegWrite: 1, MemRead: 0, MemWrite: 0, Imm: 000a, Zero_flag: x
+   r0=xxxx, r1=xxxx, r2=xxxx, r3=xxxx, r4=xxxx, address[4]:xxxx
 Time: 15000, PC: 00, Instruction: 300a, ReadData1: 0000, ReadData2: 0000, ALU_Result: fffa, ALUSrc: 1, ALUOp: 3, RegWrite: 1, MemRead: 0, MemWrite: 0, Imm: 000a, Zero_flag: x
+   r0=0000, r1=0000, r2=0000, r3=0000, r4=0000, address[4]:xxxx
 Time: 25000, PC: 01, Instruction: 3111, ReadData1: 0000, ReadData2: 0000, ALU_Result: 0001, ALUSrc: 1, ALUOp: 3, RegWrite: 1, MemRead: 0, MemWrite: 0, Imm: 0001, Zero_flag: x
+   r0=fffa, r1=0000, r2=0000, r3=0000, r4=0000, address[4]:xxxx
 Time: 35000, PC: 02, Instruction: 3223, ReadData1: 0000, ReadData2: 0000, ALU_Result: 0003, ALUSrc: 1, ALUOp: 3, RegWrite: 1, MemRead: 0, MemWrite: 0, Imm: 0003, Zero_flag: x
+   r0=fffa, r1=0001, r2=0000, r3=0000, r4=0000, address[4]:xxxx
 Time: 45000, PC: 03, Instruction: 3334, ReadData1: 0000, ReadData2: 0000, ALU_Result: 0004, ALUSrc: 1, ALUOp: 3, RegWrite: 1, MemRead: 0, MemWrite: 0, Imm: 0004, Zero_flag: x
+   r0=fffa, r1=0001, r2=0003, r3=0000, r4=0000, address[4]:xxxx
 Time: 55000, PC: 04, Instruction: 3446, ReadData1: 0000, ReadData2: 0000, ALU_Result: 0006, ALUSrc: 1, ALUOp: 3, RegWrite: 1, MemRead: 0, MemWrite: 0, Imm: 0006, Zero_flag: x
+   r0=fffa, r1=0001, r2=0003, r3=0004, r4=0000, address[4]:xxxx
 Time: 65000, PC: 05, Instruction: 0120, ReadData1: 0001, ReadData2: 0003, ALU_Result: 0004, ALUSrc: 0, ALUOp: 0, RegWrite: 1, MemRead: 0, MemWrite: 0, Imm: 0000, Zero_flag: x
+   r0=fffa, r1=0001, r2=0003, r3=0004, r4=0006, address[4]:xxxx
 Time: 75000, PC: 06, Instruction: 0111, ReadData1: 0004, ReadData2: 0004, ALU_Result: 0000, ALUSrc: 0, ALUOp: 0, RegWrite: 1, MemRead: 0, MemWrite: 0, Imm: 0001, Zero_flag: x
+   r0=fffa, r1=0004, r2=0003, r3=0004, r4=0006, address[4]:xxxx
 Time: 85000, PC: 07, Instruction: 0222, ReadData1: 0003, ReadData2: 0003, ALU_Result: 0018, ALUSrc: 0, ALUOp: 0, RegWrite: 1, MemRead: 0, MemWrite: 0, Imm: 0002, Zero_flag: x
+   r0=fffa, r1=0000, r2=0003, r3=0004, r4=0006, address[4]:xxxx
 Time: 95000, PC: 08, Instruction: 0333, ReadData1: 0004, ReadData2: 0004, ALU_Result: 0004, ALUSrc: 0, ALUOp: 0, RegWrite: 1, MemRead: 0, MemWrite: 0, Imm: 0003, Zero_flag: x
+   r0=fffa, r1=0000, r2=0018, r3=0004, r4=0006, address[4]:xxxx
 Time: 105000, PC: 09, Instruction: 333f, ReadData1: 0004, ReadData2: 0004, ALU_Result: 0003, ALUSrc: 1, ALUOp: 3, RegWrite: 1, MemRead: 0, MemWrite: 0, Imm: 000f, Zero_flag: x
-Time: 115000, PC: 0a, Instruction: 1130, ReadData1: 0000, ReadData2: 0003, ALU_Result: 0003, ALUSrc: 1, ALUOp: 1, RegWrite: 1, MemRead: 1, MemWrite: 0, Imm: 0000, Zero_flag: x
-Time: 125000, PC: 0b, Instruction: 3110, ReadData1: 0003, ReadData2: 0003, ALU_Result: 0003, ALUSrc: 1, ALUOp: 3, RegWrite: 1, MemRead: 0, MemWrite: 0, Imm: 0000, Zero_flag: x
-Time: 135000, PC: 0c, Instruction: 2331, ReadData1: 0003, ReadData2: 0003, ALU_Result: 0004, ALUSrc: 1, ALUOp: 2, RegWrite: 0, MemRead: 0, MemWrite: 1, Imm: 0001, Zero_flag: x
-Time: 145000, PC: 0d, Instruction: 4032, ReadData1: fffa, ReadData2: 0003, ALU_Result: 0005, ALUSrc: 0, ALUOp: 4, RegWrite: 0, MemRead: 0, MemWrite: 0, Imm: 0002, Zero_flag: 0
-Time: 155000, PC: 0e, Instruction: 5002, ReadData1: fffa, ReadData2: fffa, ALU_Result: 0005, ALUSrc: 0, ALUOp: 5, RegWrite: 0, MemRead: 0, MemWrite: 0, Imm: 0002, Zero_flag: 0
-Time: 165000, PC: 0f, Instruction: 3440, ReadData1: 0006, ReadData2: 0006, ALU_Result: 0006, ALUSrc: 1, ALUOp: 3, RegWrite: 1, MemRead: 0, MemWrite: 0, Imm: 0000, Zero_flag: 0
-Time: 175000, PC: 10, Instruction: 300a, ReadData1: fffa, ReadData2: fffa, ALU_Result: fff4, ALUSrc: 1, ALUOp: 3, RegWrite: 1, MemRead: 0, MemWrite: 0, Imm: 000a, Zero_flag: 0
-Time: 185000, PC: 11, Instruction: 3111, ReadData1: 0003, ReadData2: 0003, ALU_Result: 0004, ALUSrc: 1, ALUOp: 3, RegWrite: 1, MemRead: 0, MemWrite: 0, Imm: 0001, Zero_flag: 0
-Time: 195000, PC: 12, Instruction: 3223, ReadData1: 0018, ReadData2: 0018, ALU_Result: 001b, ALUSrc: 1, ALUOp: 3, RegWrite: 1, MemRead: 0, MemWrite: 0, Imm: 0003, Zero_flag: 0
-$finish called at time : 200 ns : File "C:/Users/naman/vivado/project_2/project_2.srcs/sources_1/new/datapath_tb.v" Line 81
+   r0=fffa, r1=0000, r2=0018, r3=0004, r4=0006, address[4]:xxxx
+Time: 115000, PC: 0a, Instruction: 2331, ReadData1: 0003, ReadData2: 0003, ALU_Result: 0004, ALUSrc: 1, ALUOp: 2, RegWrite: 0, MemRead: 0, MemWrite: 1, Imm: 0001, Zero_flag: x
+   r0=fffa, r1=0000, r2=0018, r3=0003, r4=0006, address[4]:0003
+Time: 125000, PC: 0b, Instruction: 4332, ReadData1: 0003, ReadData2: 0003, ALU_Result: 0005, ALUSrc: 0, ALUOp: 4, RegWrite: 0, MemRead: 0, MemWrite: 0, Imm: 0002, Zero_flag: 1
+   r0=fffa, r1=0000, r2=0018, r3=0003, r4=0006, address[4]:0003
+Time: 135000, PC: 10, Instruction: 3333, ReadData1: 0003, ReadData2: 0003, ALU_Result: 0006, ALUSrc: 1, ALUOp: 3, RegWrite: 1, MemRead: 0, MemWrite: 0, Imm: 0003, Zero_flag: 1
+   r0=fffa, r1=0000, r2=0018, r3=0003, r4=0006, address[4]:0003
+Time: 145000, PC: 11, Instruction: 6006, ReadData1: fffa, ReadData2: fffa, ALU_Result: 0000, ALUSrc: 0, ALUOp: 6, RegWrite: 0, MemRead: 0, MemWrite: 0, Imm: 0006, Zero_flag: 1
+   r0=fffa, r1=0000, r2=0018, r3=0006, r4=0006, address[4]:0003
+Time: 155000, PC: 1e, Instruction: xxxx, ReadData1: xxxx, ReadData2: xxxx, ALU_Result: 0000, ALUSrc: 0, ALUOp: x, RegWrite: 0, MemRead: 0, MemWrite: 0, Imm: 000x, Zero_flag: 1
+   r0=fffa, r1=0000, r2=0018, r3=0006, r4=0006, address[4]:0003
+Time: 165000, PC: 1f, Instruction: xxxx, ReadData1: xxxx, ReadData2: xxxx, ALU_Result: 0000, ALUSrc: 0, ALUOp: x, RegWrite: 0, MemRead: 0, MemWrite: 0, Imm: 000x, Zero_flag: 1
+   r0=fffa, r1=0000, r2=0018, r3=0006, r4=0006, address[4]:0003
+Time: 175000, PC: 20, Instruction: xxxx, ReadData1: xxxx, ReadData2: xxxx, ALU_Result: 0000, ALUSrc: 0, ALUOp: x, RegWrite: 0, MemRead: 0, MemWrite: 0, Imm: 000x, Zero_flag: 1
+   r0=fffa, r1=0000, r2=0018, r3=0006, r4=0006, address[4]:0003
+Time: 185000, PC: 21, Instruction: xxxx, ReadData1: xxxx, ReadData2: xxxx, ALU_Result: 0000, ALUSrc: 0, ALUOp: x, RegWrite: 0, MemRead: 0, MemWrite: 0, Imm: 000x, Zero_flag: 1
+   r0=fffa, r1=0000, r2=0018, r3=0006, r4=0006, address[4]:0003
+Time: 195000, PC: 22, Instruction: xxxx, ReadData1: xxxx, ReadData2: xxxx, ALU_Result: 0000, ALUSrc: 0, ALUOp: x, RegWrite: 0, MemRead: 0, MemWrite: 0, Imm: 000x, Zero_flag: 1
+   r0=fffa, r1=0000, r2=0018, r3=0006, r4=0006, address[4]:0003
+$finish called at time : 200 ns : File "C:/Users/naman/vivado/project_2/project_2.srcs/sources_1/new/datapath_tb.v" Line 90
