@@ -49,7 +49,7 @@ module datapath_tb;
 
   // writing the outputs to a file
   initial begin
-    file = $fopen("D:\\processor8bit_output.txt", "w");
+    file = $fopen("processor16bit_output.txt", "w");
     if (file == 0) begin
       $display("Error: could not open output file.");
       $finish;

@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Fri Apr 11 22:48:55 2025
+# Process ID: 15920
+# Current directory: C:/Users/naman/vivado/project_2/project_2.runs/impl_1
+# Command line: vivado.exe -log top_module.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source top_module.tcl -notrace
+# Log file: C:/Users/naman/vivado/project_2/project_2.runs/impl_1/top_module.vdi
+# Journal file: C:/Users/naman/vivado/project_2/project_2.runs/impl_1\vivado.jou
+# Running On: Naman, OS: Windows, CPU Frequency: 2995 MHz, CPU Physical cores: 14, Host memory: 16641 MB
+#-----------------------------------------------------------
+source top_module.tcl -notrace

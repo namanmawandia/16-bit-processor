@@ -15,7 +15,7 @@ module program_counter(
         if (reset) begin
             pc <= 8'b00000000; // Reset PC to 0
         end
-        else if (enable) begin
+        else begin
             pc <= mux_pc_out; // set mux_pc_out value and defined in datapath
         end
     end

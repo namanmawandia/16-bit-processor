@@ -30,14 +30,33 @@ module alu (
                 AND:  result = rs_data1 & rs_data2;       // AND (R-type)
                 default: result = 16'b0;                  // Default case
             endcase
+            zero_flag = (result == 16'b0);
         end else begin  // I-type and other instructions
             case (alu_op)
-                ADDI: result = rs_data2 + {{12{imm[3]}}, imm}; // ADDI (sign-extended 4-bit immediate)
-                LW:   result = rs_data2 + {{12{imm[3]}}, imm}; // LW (address calculation)
-                SW:   result = rs_data2 + {{12{imm[3]}}, imm}; // SW (address calculation)
-                BEQ:  zero_flag = (rs_data1 - rs_data2 == 16'b0) ? 1'b1 : 1'b0; // BEQ (set zero flag if equal)
-                BNE:  zero_flag = (rs_data1 - rs_data2 != 16'b0) ? 1'b1 : 1'b0; // BNE (set one flag if not equal)
-                default: result = 16'b0;
+                ADDI: begin
+                      result = rs_data2 + {{12{imm[3]}}, imm}; // ADDI (sign-extended 4-bit immediate)
+                      zero_flag = (result == 16'b0);
+                      end
+                LW:   begin
+                      result = rs_data2 + {{12{imm[3]}}, imm}; // LW (address calculation)
+                      zero_flag = (result == 16'b0);
+                      end
+                SW:   begin
+                      result = rs_data2 + {{12{imm[3]}}, imm}; // SW (address calculation)
+                      zero_flag = (result == 16'b0);
+                      end
+                BEQ:  begin
+                      result = rs_data2 - rs_data1; // BEQ (set one flag if equal)
+                      zero_flag = (result == 16'b0);
+                      end
+                BNE:  begin 
+                      result = rs_data2 - rs_data1; // BNE (set one flag if not equal)
+                      zero_flag = ~(result == 16'b0);
+                      end
+                default:  begin 
+                          result = 16'b0;
+                          zero_flag = (result == 16'b0);
+                          end
             endcase
         end
     end
