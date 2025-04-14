@@ -1,18 +1,38 @@
-0011000000001010  // addi r0, r0, 10 (load 10 into r0)
-0011000100010001  // addi r1, r1, 1  (load 1 into r1)
-0011001000100011  // addi r2, r2, 3  (load 3 into r2)
-0011001100110100  // addi r3, r3, 4  (load 4 into r3)
-0011010001000110  // addi r4, r4, 6   (load 6 into r4)
-0000000100100000  // add r1, r2, r1  (r1 = r2 + r1 = 3 + 1 = 4)
-0000000100010001  // sub r1, r1, r1  (r1 = r1 - r1 = 13 - 13 = 0)
-0000001000100010  // sll r2, r2, r2  (r2 = r2 << r2 = 3 << 3 = 24)
-0000001100110011  // and r3, r3, r3  (r3 = r3 & r3 = 4 & 4= 4)
-0011001100111111  // addi r3,r3,-1    (value if r3 changes to 3) 
-0010001100110001  // sw r3, r3, 1    (store value of r3 at addr(val(r3)+1)=addr(3+1))
-0100001100110010  // beq r3, r3, 2    (branch to PC+2 if r0 == r1)
-0101000000000010  // bne r0, r0, 2    (branch to PC+2 if r0 != r1)
-0011000000001010  // addi r0, r0, 1 (add 10 into r0)
-0011000100010001  // addi r1, r1, 1  (add 1 into r1)
-0011010001000011  // addi r4, r4, 3  (add 3 into r2)
-0011001100110011  // addi r3, r3, 3  (add 3 into r2)
-0110000000000110  // jmp 6
+00110000
+00001010  // addi r0, r0, 10 (load 10 into r0)
+00110001
+00010001  // addi r1, r1, 1  (load 1 into r1)
+00110010
+00100011  // addi r2, r2, 3  (load 3 into r2)
+00110011
+00110100  // addi r3, r3, 4  (load 4 into r3)
+00110100
+01000110  // addi r4, r4, 6   (load 6 into r4)
+00000001
+00100000  // add r1, r2, r1  (r1 = r2 + r1 = 3 + 1 = 4)
+00000001
+00010001  // sub r1, r1, r1  (r1 = r1 - r1 = 13 - 13 = 0)
+00000010
+00100010  // sll r2, r2, r2  (r2 = r2 << r2 = 3 << 3 = 24)
+00000011
+00110011  // and r3, r3, r3  (r3 = r3 & r3 = 4 & 4= 4)
+00110011
+00111111  // addi r3,r3,-1    (value if r3 changes to 3)
+00010001
+00110000  // lw r1, r3, 0    (r1 = r3+0 = 3)
+00100011
+00110001  // sw r3, r3, 1    (store value of r3 at addr(val(r3)+1)=addr(3+1))
+01000011
+00110010  // beq r3, r3, 2    (branch to PC+2 if r0 == r1)
+01010000
+00000010  // bne r0, r0, 2    (branch to PC+2 if r0 != r1)
+00110000
+00000001  // addi r0, r0, 1 (add 1 into r0)
+00110001
+00010001  // addi r1, r1, 1  (add 1 into r1)
+00110100
+01000011  // addi r4, r4, 3  (add 3 into r4)
+00110011
+00110011  // addi r3, r3, 3  (add 3 into r3)
+01100000
+00000110  // jmp 6

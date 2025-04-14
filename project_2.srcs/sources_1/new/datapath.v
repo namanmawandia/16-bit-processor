@@ -100,9 +100,9 @@ module datapath(
     );
 
     //Immediate and address offset calculation
-    assign branch_target = pc + 1 + (se_imm[7:0] << 1);
+    assign branch_target = pc + 2 + (se_imm[7:0] << 1);
 
-    assign jump_target = pc + 1 + ({ {4{inst[11]}}, inst[11:0] } << 1);
+    assign jump_target = pc + 2 + ({ {4{inst[11]}}, inst[11:0] } << 1);
 
    always @(*) begin
     if(Jump) // if jump use jump target PC
@@ -110,7 +110,7 @@ module datapath(
     else if (zero_flag && Branch) // if bne or neq true, then branch with branch_target PC
         mux_pc_out = branch_target;
     else  // simple next PC
-        mux_pc_out = pc + 1;
+        mux_pc_out = pc + 2;
    end
 
 

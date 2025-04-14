@@ -3,8 +3,8 @@ module ins_mem (
     output reg [15:0] inst // 16-bit instruction output
 );
      
-    // 64 memory locations, each storing a 16-bit instruction
-    reg [15:0] ins_mem [255:0];
+    // 64 memory locations, each storing a 8-bit instruction
+    reg [7:0] ins_mem [255:0];
     
     // Loading instructions from an external file
     initial begin
@@ -12,7 +12,7 @@ module ins_mem (
     end
     
     always @(pc_addr) begin
-        inst <= ins_mem[pc_addr];
+        inst = {ins_mem[pc_addr],ins_mem[pc_addr+1]};
     end
 
 endmodule

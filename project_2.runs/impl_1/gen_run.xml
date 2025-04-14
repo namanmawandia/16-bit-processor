@@ -18,10 +18,14 @@
   <File Type="BITSTR-MMI" Name="top_module.mmi"/>
   <File Type="ROUTE-METHODOLOGY-DRC" Name="datapath_tb_methodology_drc_routed.rpt"/>
   <File Type="BITSTR-SYSDEF" Name="top_module.sysdef"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="datapath_tb_methodology_drc_routed.pb"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
   <File Type="BITSTR-LTX" Name="top_module.ltx"/>
+  <File Type="BOOT-PDI-FILE" Name="top_module_boot.pdi"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="NPI_FILE" Name="top_module.npi"/>
   <File Type="OPT-DRC" Name="datapath_tb_drc_opted.rpt"/>
+  <File Type="RBD_FILE" Name="top_module.rbd"/>
   <File Type="OPT-HWDEF" Name="top_module.hwdef"/>
   <File Type="PLACE-IO" Name="datapath_tb_io_placed.rpt"/>
   <File Type="PLACE-UTIL" Name="datapath_tb_utilization_placed.rpt"/>
@@ -55,17 +59,13 @@
   <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="datapath_tb_timing_summary_postroute_physopted.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="datapath_tb_bus_skew_postroute_physopted.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="datapath_tb_bus_skew_postroute_physopted.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="datapath_tb_methodology_drc_routed.pb"/>
   <File Type="ROUTE-DRC-RPX" Name="datapath_tb_drc_routed.rpx"/>
   <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="datapath_tb_methodology_drc_routed.rpx"/>
   <File Type="PDI-FILE" Name="top_module.pdi"/>
-  <File Type="BOOT-PDI-FILE" Name="top_module_boot.pdi"/>
   <File Type="PL-PDI-FILE" Name="top_module_pld.pdi"/>
   <File Type="RCFI_FILE" Name="top_module.rcfi"/>
   <File Type="CFI_FILE" Name="top_module.cfi"/>
   <File Type="RNPI_FILE" Name="top_module.rnpi"/>
-  <File Type="NPI_FILE" Name="top_module.npi"/>
-  <File Type="RBD_FILE" Name="top_module.rbd"/>
   <File Type="ROUTE-RQS" Name="top_module_routed.rqs"/>
   <File Type="POSTROUTE-PHYSOPT-RQS" Name="top_module_postroute_physopted.rqs"/>
   <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>

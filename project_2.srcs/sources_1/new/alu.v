@@ -26,7 +26,7 @@ module alu (
             case (func_code)
                 ADD:  result = rs_data1 + rs_data2;       // ADD (R-type)
                 SUB:  result = rs_data1 - rs_data2;       // SUB (R-type)
-                SLL:  result = rs_data1 << rs_data2[3:0]; // SLL (R-type) shift by lower 4 bits
+                SLL:  result = rs_data1 << rs_data2; // SLL (R-type) shift
                 AND:  result = rs_data1 & rs_data2;       // AND (R-type)
                 default: result = 16'b0;                  // Default case
             endcase
