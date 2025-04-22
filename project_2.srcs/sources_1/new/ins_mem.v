@@ -1,18 +1,21 @@
+/*  We are using ins_mem tto simulates the instruction memory. It takes an 8-bit program 
+counter address (pc_addr) as input and outputs the corresponding 16-bit instruction (inst). 
+The memory is initialized with values from an external file named InsMem.mem
+*/
+
 module ins_mem (
-    input [7:0] pc_addr,  // 8-bit address
-    output reg [15:0] inst // 16-bit instruction output
+    input [7:0] pc_addr,
+    output reg [15:0] inst
 );
      
-    // 64 memory locations, each storing a 8-bit instruction
-    reg [7:0] ins_mem [255:0];
+    reg [15:0] ins_mem [255:0];
     
-    // Loading instructions from an external file
     initial begin
         $readmemb("InsMem.mem", ins_mem);
     end
     
     always @(pc_addr) begin
-        inst = {ins_mem[pc_addr],ins_mem[pc_addr+1]};
+        inst <= ins_mem[pc_addr];
     end
 
 endmodule

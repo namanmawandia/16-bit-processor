@@ -1,24 +1,32 @@
+/*
+This is kind of a central module to connect and create flow of data between all components.
+ Calls each component in a specified order after fetching all instructions. 
+ It handles everything from ALU operations, accessing memory, incrementing pc, 
+ handling control unit, sign extension, address calculation, zero flag, etc.
+
+*/
+
 module datapath(
     input clk,
     input reset,
     input enable,
-    output wire [7:0] pc_out_addr,    // Program counter output
-    output wire [15:0] inst,         // Instruction output
-    output wire [15:0] rs1_data,     // Read data 1 output
-    output wire [15:0] rs2_data,     // Read data 2 output
-    output wire [15:0] alu_result,   // ALU result output
-    output wire RegWrite,        // Register write enable
-    output wire MemWrite,         // Memory write enable
-    output wire MemRead,          // Memory read enable
-    output wire ALUSrc,           // ALU source select: 0 = reg, 1 = imm
-    output wire [3:0] ALUOp,     // ALU operation code
-    output wire [15:0] imm,       // Immediate output
-    output wire zero_flag           // zero flag
-);
+    output wire [7:0] pc_out_addr,    
+    output wire [15:0] inst,         
+    output wire [15:0] rs1_data,    
+    output wire [15:0] rs2_data,     
+    output wire [15:0] alu_result,   
+    output wire RegWrite,       
+    output wire MemWrite,         
+    output wire MemRead,         
+    output wire ALUSrc,          
+    output wire [3:0] ALUOp,    
+    output wire [15:0] imm,      
+    output wire zero_flag         
+); 
 
-    // Internal Signals
+    
     wire [7:0] pc;
-    wire [15:0] se_imm; // Sign-extended immediate
+    wire [15:0] se_imm; 
     wire [15:0] alu_src_mux_out;
     wire [15:0] mem_data_out;
     wire Branch;
@@ -28,7 +36,6 @@ module datapath(
     
     reg [7:0] mux_pc_out;
 
-    // Instantiate Modules
     program_counter pc_unit(
         .clk(clk),
         .reset(reset),
@@ -59,16 +66,16 @@ module datapath(
     register_file reg_file(
         .clk(clk),
         .reset(reset),
-        .rs1_addr(inst[11:8]),   // rs1_addr connected to instruction
-        .rs2_addr(inst[7:4]),    // rs2_addr connected to instruction
-        .wr_addr(inst[11:8]),    // wr_addr connected to instruction
-        .wr_data(alu_result),   // wr_data from ALU result
+        .rs1_addr(inst[11:8]),   
+        .rs2_addr(inst[7:4]),    
+        .wr_addr(inst[11:8]),   
+        .wr_data(alu_result),   
         .reg_wr_en(RegWrite),
         .rs1_data(rs1_data),
         .rs2_data(rs2_data)
     );
 
-    //Sign Extension module
+
     assign se_imm = {{12{inst[3]}}, inst[3:0]};
 
     alu alu_unit(
@@ -87,7 +94,7 @@ module datapath(
         .data_in(rs1_data),
         .wr(MemWrite),
         .rd(MemRead),
-        .addr(alu_result[7:0]), // Use lower 8 bits for memory address
+        .addr(alu_result[7:0]), 
         .data_out(mem_data_out)
     );
 
@@ -99,17 +106,17 @@ module datapath(
         .out(wr_data)
     );
 
-    //Immediate and address offset calculation
+
     assign branch_target = pc + 2 + (se_imm[7:0] << 1);
 
     assign jump_target = pc + 2 + ({ {4{inst[11]}}, inst[11:0] } << 1);
 
    always @(*) begin
-    if(Jump) // if jump use jump target PC
+    if(Jump)
         mux_pc_out = jump_target;
-    else if (zero_flag && Branch) // if bne or neq true, then branch with branch_target PC
+    else if (zero_flag && Branch) 
         mux_pc_out = branch_target;
-    else  // simple next PC
+    else  
         mux_pc_out = pc + 2;
    end
 

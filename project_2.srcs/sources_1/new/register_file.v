@@ -1,20 +1,23 @@
+/* We are making the register_file module with 16 registers. 
+On a rising clock edge, if reset is high, all registers are cleared. 
+If reg_wr_en is high, wr_data is written to the register at wr_addr. 
+The outputs rs1_data and rs2_data continuously reflect the contents of the registers at rs1_addr and rs2_addr. */
+
 module register_file (
     input wire clk,
     input wire reset,
-    input [3:0] rs1_addr,   // Read address 1 (4 bits for 16 registers)
-    input [3:0] rs2_addr,   // Read address 2
-    input [3:0] wr_addr,    // Write address
-    input [15:0] wr_data,   // Data to write
-    input reg_wr_en,        // Write enable
-    output reg [15:0] rs1_data, // Output for read port 1
-    output reg [15:0] rs2_data  // Output for read port 2
+    input [3:0] rs1_addr,
+    input [3:0] rs2_addr,
+    input [3:0] wr_addr,
+    input [15:0] wr_data,
+    input reg_wr_en,
+    output reg [15:0] rs1_data,
+    output reg [15:0] rs2_data
 );
 
-    // Declaring 16 registers, each 16 bits wide
     reg [15:0] registers [15:0];
     integer i;
     
-    // Reset and write logic
     always @(posedge clk) begin
         if (reset) begin
             for (i = 0; i < 16; i = i + 1)
@@ -24,7 +27,6 @@ module register_file (
         end
     end
 
-    // Combinational read logic
     always @(*) begin
         rs1_data = registers[rs1_addr];
         rs2_data = registers[rs2_addr];

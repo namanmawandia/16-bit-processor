@@ -1,17 +1,25 @@
+/*
+This unit as named controls decision making in a lot of processes. 
+It receives a opcode from the instruction and depending upon multiple case 
+statements returns the output/decision. It gives signals like read or write enable, 
+ALU source selectio, pc increment or branch/jump, etc. Also, as the basic step, 
+it decides which type of instruction we are on right now (R-type, I-type, etc).
+
+*/
+
 module control_unit(
-    input [3:0] opcode,        // 4-bit opcode
-    output reg RegWrite,       // Register write enable
-    output reg MemWrite,       // Memory write enable
-    output reg MemRead,        // Memory read enable
-    output reg ALUSrc,         // ALU source select: 0 = reg, 1 = imm
-    output reg RegWriteSrc,    // 0 = ALU result, 1 = Memory data
-    output reg Branch,         // Branch flag for BEQ/BNE
-    output reg Jump,           // Jump flag
+    input [3:0] opcode,        
+    output reg RegWrite,       
+    output reg MemWrite,       
+    output reg MemRead,        
+    output reg ALUSrc,         
+    output reg RegWriteSrc,    
+    output reg Branch,         
+    output reg Jump,         
     output reg [3:0] ALUOp     
 );
 
     always @(*) begin
-        // Default control signals
         RegWrite    = 0;
         MemWrite    = 0;
         MemRead     = 0;
@@ -19,44 +27,44 @@ module control_unit(
         RegWriteSrc = 0;
         Branch      = 0;
         Jump        = 0;
-        ALUOp       = opcode;  // ALU operation same as the opcode
+        ALUOp       = opcode; 
 
         case (opcode)
-            4'b0000: begin // R-Type Instructions (ADD, SUB, SLL, AND)
+            4'b0000: begin 
                 RegWrite = 1;
-                ALUSrc   = 0; // Use register values
-                RegWriteSrc = 0; // Result comes from ALU
+                ALUSrc   = 0; 
+                RegWriteSrc = 0; 
             end
 
-            4'b0001: begin // Load Word (LW)
+            4'b0001: begin 
                 RegWrite = 1;
                 MemRead  = 1;
-                ALUSrc   = 1; // Use immediate for address calculation
-                RegWriteSrc = 1; // Write data from memory to register
+                ALUSrc   = 1; 
+                RegWriteSrc = 1; 
             end
 
-            4'b0010: begin // Store Word (SW)
+            4'b0010: begin 
                 MemWrite = 1;
-                ALUSrc   = 1; // Use immediate for address calculation
+                ALUSrc   = 1; 
             end
 
-            4'b0011: begin // Add Immediate (ADDI)
+            4'b0011: begin 
                 RegWrite = 1;
-                ALUSrc   = 1; // Use immediate value
-                RegWriteSrc = 0; // Write ALU result to register
+                ALUSrc   = 1; 
+                RegWriteSrc = 0;
             end
 
-            4'b0100: begin // Branch if Equal (BEQ)
+            4'b0100: begin 
                 Branch = 1;
-                ALUSrc = 0; // Use register values
+                ALUSrc = 0; 
             end
 
-            4'b0101: begin // Branch if Not Equal (BNE)
+            4'b0101: begin
                 Branch = 1;
-                ALUSrc = 0; // Use register values
+                ALUSrc = 0;
             end
 
-            4'b0110: begin // Jump (JMP)
+            4'b0110: begin 
                 Jump = 1;
             end
 

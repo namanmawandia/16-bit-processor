@@ -2,19 +2,17 @@
 
 module control_unit_tb;
 
-    // Parameters
     parameter CLK_PERIOD = 10;
 
-    // Signals
-    reg [3:0] opcode;          // 4-bit opcode for 16-bit ALU operations
-    wire RegWrite;             // Register write enable
-    wire MemWrite;             // Memory write enable
-    wire MemRead;              // Memory read enable
-    wire ALUSrc;               // ALU source select: 0 = reg, 1 = imm
-    wire RegWriteSrc;          // Register write source (ALU result or Memory)
-    wire Branch;               // Branch control (BEQ/BNE)
-    wire Jump;                 // Jump control (JMP)
-    wire [3:0] ALUOp;         // ALU operation code (directly from opcode)
+    reg [3:0] opcode;          
+    wire RegWrite;            
+    wire MemWrite;             
+    wire MemRead;              
+    wire ALUSrc;              
+    wire RegWriteSrc;          
+    wire Branch;              
+    wire Jump;                 
+    wire [3:0] ALUOp;        
 
     
     control_unit cu (
@@ -29,45 +27,45 @@ module control_unit_tb;
         .ALUOp(ALUOp)
     );
 
-    // Initial stimulus
+    
     initial begin
-        // Test cases with 16-bit opcodes
-        opcode = 4'b0000;  // Opcode 0000: R-Type Instructions (ADD, SUB, SLL, AND)
+        
+        opcode = 4'b0000; 
         #10;
         $display("Opcode: %b, RegWrite: %b, MemWrite: %b, MemRead: %b, ALUSrc: %b, RegWriteSrc: %b, Branch: %b, Jump: %b, ALUOp: %b", 
                  opcode, RegWrite, MemWrite, MemRead, ALUSrc, RegWriteSrc, Branch, Jump, ALUOp);
 
-        opcode = 4'b0001;  // Opcode 0001: Load Word (LW)
+        opcode = 4'b0001;  
         #10;
         $display("Opcode: %b, RegWrite: %b, MemWrite: %b, MemRead: %b, ALUSrc: %b, RegWriteSrc: %b, Branch: %b, Jump: %b, ALUOp: %b", 
                  opcode, RegWrite, MemWrite, MemRead, ALUSrc, RegWriteSrc, Branch, Jump, ALUOp);
 
-        opcode = 4'b0010;  // Opcode 0010: Store Word (SW)
+        opcode = 4'b0010;  
         #10;
         $display("Opcode: %b, RegWrite: %b, MemWrite: %b, MemRead: %b, ALUSrc: %b, RegWriteSrc: %b, Branch: %b, Jump: %b, ALUOp: %b", 
                  opcode, RegWrite, MemWrite, MemRead, ALUSrc, RegWriteSrc, Branch, Jump, ALUOp);
 
-        opcode = 4'b0011;  // Opcode 0011: Add Immediate (ADDI)
+        opcode = 4'b0011;  
         #10;
         $display("Opcode: %b, RegWrite: %b, MemWrite: %b, MemRead: %b, ALUSrc: %b, RegWriteSrc: %b, Branch: %b, Jump: %b, ALUOp: %b", 
                  opcode, RegWrite, MemWrite, MemRead, ALUSrc, RegWriteSrc, Branch, Jump, ALUOp);
 
-        opcode = 4'b0100;  // Opcode 0100: Branch if Equal (BEQ)
+        opcode = 4'b0100; 
         #10;
         $display("Opcode: %b, RegWrite: %b, MemWrite: %b, MemRead: %b, ALUSrc: %b, RegWriteSrc: %b, Branch: %b, Jump: %b, ALUOp: %b", 
                  opcode, RegWrite, MemWrite, MemRead, ALUSrc, RegWriteSrc, Branch, Jump, ALUOp);
 
-        opcode = 4'b0101;  // Opcode 0101: Branch if Not Equal (BNE)
+        opcode = 4'b0101;  
         #10;
         $display("Opcode: %b, RegWrite: %b, MemWrite: %b, MemRead: %b, ALUSrc: %b, RegWriteSrc: %b, Branch: %b, Jump: %b, ALUOp: %b", 
                  opcode, RegWrite, MemWrite, MemRead, ALUSrc, RegWriteSrc, Branch, Jump, ALUOp);
 
-        opcode = 4'b0110;  // Opcode 0110: Jump (JMP)
+        opcode = 4'b0110;  
         #10;
         $display("Opcode: %b, RegWrite: %b, MemWrite: %b, MemRead: %b, ALUSrc: %b, RegWriteSrc: %b, Branch: %b, Jump: %b, ALUOp: %b", 
                  opcode, RegWrite, MemWrite, MemRead, ALUSrc, RegWriteSrc, Branch, Jump, ALUOp);
 
-        // Finish simulation
+        
         $finish;
     end
 

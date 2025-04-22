@@ -2,15 +2,14 @@
 
 module program_counter_tb;
 
-    // Parameters
     parameter CLK_PERIOD = 10;
 
-    // Signals
+
     reg clk;
     reg reset;
-    reg enable;
+    reg enable;        
+    reg [7:0] mux_pc_out;  
     wire [7:0] pc;
-    wire [7:0] mux_pc_out;
 
     program_counter uut (
         .clk(clk),
@@ -20,7 +19,6 @@ module program_counter_tb;
         .pc(pc)
     );
 
-    // Clock Generation
     always #(CLK_PERIOD / 2) clk = ~clk;
 
     // Stimulus block
@@ -29,35 +27,34 @@ module program_counter_tb;
         clk = 0;
         reset = 1;
         enable = 0;
+        mux_pc_out = 8'h00;
 
-        // Hold reset high initially
-        #20;
-        reset = 0; // Deassert reset
-        enable = 1; // Enable PC increment
+        #(CLK_PERIOD*2) reset = 0;
 
-        // Let it count for a few cycles
-        #100;
+        mux_pc_out = 8'h01;
+        #CLK_PERIOD;
+        mux_pc_out = 8'h02;
+        #CLK_PERIOD;
+        mux_pc_out = 8'h03;
+        #CLK_PERIOD;
 
-        // Disable counting
-        enable = 0;
-        #30;
-
-        // Trigger reset again
         reset = 1;
-        #10;
+        mux_pc_out = 8'h01;
+        #CLK_PERIOD;
         reset = 0;
+        #CLK_PERIOD;
 
-        // Re-enable counting
-        enable = 1;
-        #50;
+        mux_pc_out = 8'h04;
+        #CLK_PERIOD;
+        mux_pc_out = 8'h05;
+        #CLK_PERIOD;
 
-        // Stop simulation
         $finish;
     end
 
-    // Display PC value at every positive clock edge
     always @(posedge clk) begin
-        $display("Time: %0t | PC: %d | Reset: %b | Enable: %b | Mux_pc_out: %b", $time, pc, reset, enable,mux_pc_out);
+        $display("[%0t] PC: 0x%h, RESET: %b",
+                $time, pc, reset);
     end
 
 endmodule
